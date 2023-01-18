@@ -1,4 +1,4 @@
-import { RTMClient } from '@slack/rtm-api';
+const { RTMClient } = require('@slack/rtm-api');
 const token = 'SLACK_BOT_TOKEN';
 
 const rtm = new RTMClient(token);
@@ -103,4 +103,7 @@ rtm.on('message', async (event) => {
         }
     }
 });
+
+node app.js
+pm2 start app.js -- name "my-bot"
 
