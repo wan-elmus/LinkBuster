@@ -1,39 +1,33 @@
-# Brief Description of what the Bot does
+# Modifications that can be added to the bot
 
-It uses the Slack RTM API to listen for messages in a specific channel, and when a message that includes a link is detected, it checks if the user who sent the message is banned or has been warned before. If the user is banned, the bot sends a message to the channel indicating that the user is banned. If the user has been warned before, the bot bans the user and sends a message to the channel indicating that the user is banned. If the user has not been warned before, the bot sends a warning message to the user.
+Include an option for users to appeal their ban: Users who have been banned can send a message to the bot to appeal their ban, and the bot can forward the message to a designated moderator for review.
 
-This code uses three data structures to keep track of warned and banned users:
+Add option for moderators to check the number of warnings or bans issued: Moderators can check the number of warnings or bans issued to specific users or in general.
 
-A set called "bannedUsers" to keep track of banned users.
-A map called "warnedUsers" to keep track of warned users, with the key being the user's ID and the value being the timestamp of the warning.
-A function  *hasBeenWarned*  which checks if a user has already been warned.
-A function  *isBanned*  which checks if a user has been banned.
-A function  *warnUser*  which adds a user to the warnedUsers map.
-A function  *clearWarning*  which removes a user from the warnedUsers map.
-A function   *banUser*  which obscures the User from accessing the channel for a week.
+Add an option for moderators to unban users: Moderators can unban users who have been banned.
 
-## Steps to deploy the Bot in the Slack channel
+Include option for the bot to automatically unban users after a certain period of time: Instead of having a moderator unban users, the bot can automatically unban users after a certain period of time.
 
-For this case, there is an existing channel called "meme-ology" in ALX Slack workspace.
+Include bot function to notify users when their ban is about to expire: The bot can notify users when their ban is about to expire, so they know when they will be able to post links again.
 
-To be able to use the bot for any Slack channel, obtain the channel ID of the desired channel. You can use the Slack WebClient API *conversations.list* method to retrieve the list of all channels in the workspace, then find the channel with the desired name and get its ID.
+Include an option for the bot to notify the channel when a user has been banned or warned: The bot can notify the channel when a user has been banned or warned, so other users are aware of the situation.
 
-Update the bot's code to use the channel ID of the "meme-ology" channel. The hard-coded channel name "memeology" can be replaced by the ID of the desired channel.
+This is the best Mod: option for the bot to automatically delete links: Instead of banning or warning users, the bot can automatically delete links that are posted in the channel.
 
-Deploy the bot: Once the bot's code is set up, it can be deployed to a server or hosting platform. There are many options available, such as Heroku, AWS, Google Cloud, and more.
+## Details to obtain the token and deploy the code in slack channel
 
-Invite the *reaper* bot to the "meme-ology" channel or your desired channel. You can use the Slack WebClient API *conversations.invite* method to invite the bot in the channel.
+No need if you already got the app - Create a new Slack app: Go to <https://api.slack.com/apps> and create a new app. Give it a name and select the workspace that you want to use it in.
 
-Test bot by sending messages with links, it should be able to respond accordingly.
+Obtain a bot token: Once you've created your app, navigate to the "Bot Users" section in the sidebar and add a new bot user. You will then be provided with a bot token that you can use to authenticate your bot with the Slack API. Replace SLACK_BOT_TOKEN in the code with the bot token obtained.
 
-Also, you can use the Slack's Event Subscriptions and Slack's Bot functionality to deploy your bot, they will allow you to listen to the events on your channel and respond to them, also you can use Slack's Block Kit to make your bot's messages more interactive.
+Install the necessary dependencies: This code uses the @slack/rtm-api library, so it's a must to have it installed in your project. You can do this by running npm install @slack/rtm-api or yarn add @slack/rtm-api in your terminal.
 
-### Slack Link Dog - LinkSniffer.js
+Start the bot: Once you've set up the bot token and installed the necessary dependencies, you can start the bot by running the code. The bot will connect to Slack and begin listening for events.
 
-Code imports the Slack Real Time Messaging (RTM) client and creates a new instance of it using a token, which allows the script to connect to Slack and interact with the Slack API. It then starts the RTM client and creates two maps, one for banned users and one for warned users
+Add the bot to a channel: You'll need to invite the bot to the channel that you want it to listen to. You can do this by going to the channel in Slack, typing "@" followed by the bot's name, and selecting the bot from the list of suggestions.
 
-It defines several functions to interact with the maps, including functions to check if a user has been warned or banned, add or remove a warning for a user, ban a user for 7 days, and unban a user.
+Test the bot: You can test the bot by sending a message in the channel that starts with "!banstatus" or "!unban" and also by posting a link, the bot should respond accordingly.
 
-Script then listens for message events from the RTM client, and checks if the message is in a specific channel, 'meme-ology' or 'any desired channel'. If the message includes a command, the script will check for specific command like '!banstatus' and '!unban' and will return the status of user whether it is banned or warned or not, and unban the user if the command is '!unban'
+Deploy the code: To deploy the code, you will need to host it on a server that is always running and accessible to the internet. There are many ways to do this, such as using Heroku or AWS. You will also need to set up a way to automatically restart the bot if it crashes or the server is rebooted.
 
-The script then checks if the message includes a link, and if it does, it gets the user's ID and username.
+Keep the token safe: Keep the token secret and never share it with anyone. If you think the token has been compromised, you can always regenerate it on the app management page.
