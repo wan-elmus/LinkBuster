@@ -104,6 +104,7 @@ rtm.on('message', async (event) => {
     }
 });
 
-node app.js
-pm2 start app.js -- name "my-bot"
+// node LinkSniffer.js
+// pm2 start LinkSniffer.js --name "LinkSniffer"
+// pm2 start LinkSniffer --watch
 
