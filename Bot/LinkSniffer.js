@@ -1,5 +1,5 @@
 const { RTMClient } = require('@slack/rtm-api');
-const token = 'xapp-1-A04KK45N3HS-4662696162803-0faa2b566b4f3fe41bdf2294c93905253e4bf688509a2a92f2a9249e6d9c9d52';
+const token = 'slack_bot_token';
 
 const rtm = new RTMClient(token);
 rtm.start();
