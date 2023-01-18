@@ -1,3 +1,5 @@
+// LinkSniffer Bot
+
 const { RTMClient } = require('@slack/rtm-api');
 const token = 'slack_bot_token';
 
