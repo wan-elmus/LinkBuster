@@ -1,4 +1,4 @@
-# Brief Description of what the Darn Bot does
+# Brief Description of what the Bot does
 
 It uses the Slack RTM API to listen for messages in a specific channel, and when a message that includes a link is detected, it checks if the user who sent the message is banned or has been warned before. If the user is banned, the bot sends a message to the channel indicating that the user is banned. If the user has been warned before, the bot bans the user and sends a message to the channel indicating that the user is banned. If the user has not been warned before, the bot sends a warning message to the user.
 
@@ -20,7 +20,7 @@ To be able to use the bot for any Slack channel, obtain the channel ID of the de
 
 Update the bot's code to use the channel ID of the "meme-ology" channel. The hard-coded channel name "memeology" can be replaced by the ID of the desired channel.
 
-Deploy the darn bot: Once the bot's code is set up, it can be deployed to a server or hosting platform. There are many options available, such as Heroku, AWS, Google Cloud, and more.
+Deploy the bot: Once the bot's code is set up, it can be deployed to a server or hosting platform. There are many options available, such as Heroku, AWS, Google Cloud, and more.
 
 Invite the *reaper* bot to the "meme-ology" channel or your desired channel. You can use the Slack WebClient API *conversations.invite* method to invite the bot in the channel.
 
